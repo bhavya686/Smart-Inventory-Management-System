@@ -5,6 +5,7 @@ import java.awt.*;
 
 import ui.AddProductFrame;
 import ui.ViewProductsFrame;
+import ui.ReportsFrame;
 
 public class DashboardFrame extends JFrame {
 
@@ -35,6 +36,10 @@ public class DashboardFrame extends JFrame {
                 });
 
                 JButton reportsButton = new JButton("Reports");
+
+                reportsButton.addActionListener(e -> {
+                        new ReportsFrame();
+                });
 
                 JButton exitButton = new JButton("Exit");
 
