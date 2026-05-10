@@ -1,0 +1,2 @@
+Electronics,101,Laptop,Electronics,55000.0,50,24
+Clothing,103,T-Shirt,Clothing,999.0,5,XL
