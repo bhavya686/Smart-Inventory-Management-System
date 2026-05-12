@@ -22,7 +22,12 @@ public class AddProductFrame extends JFrame {
 
         public AddProductFrame() {
 
-                setTitle("Add Product");
+                setTitle("Smart Inventory Management System - Add Product");
+
+                ImageIcon icon = new ImageIcon(
+                                "assets/icon.png");
+
+                setIconImage(icon.getImage());
 
                 setSize(450, 450);
 

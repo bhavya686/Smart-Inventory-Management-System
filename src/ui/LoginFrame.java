@@ -17,6 +17,11 @@ public class LoginFrame extends JFrame
                 setTitle(
                                 "Smart Inventory Management System");
 
+                ImageIcon icon = new ImageIcon(
+                                "assets/icon.png");
+
+                setIconImage(icon.getImage());
+
                 setSize(400, 300);
 
                 setLocationRelativeTo(null);

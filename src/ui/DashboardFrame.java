@@ -11,7 +11,12 @@ public class DashboardFrame extends JFrame {
 
         public DashboardFrame() {
 
-                setTitle("Dashboard");
+                setTitle("Smart Inventory Management System - Dashboard");
+
+                ImageIcon icon = new ImageIcon(
+                                "assets/icon.png");
+
+                setIconImage(icon.getImage());
 
                 setSize(500, 400);
 

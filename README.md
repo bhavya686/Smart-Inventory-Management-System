@@ -1,26 +1,64 @@
 # Smart Inventory Management System
 
-A desktop-based inventory management application developed using Java Swing and Object-Oriented Programming principles.
+Desktop-based inventory management application developed using Java Swing and Object-Oriented Programming principles.
+
+---
 
 ## Features
+
 - Product Management
 - CRUD Operations
+- Inventory Tracking
 - File Persistence
-- Reporting System
+- Inventory Reports
 - Multithreading
-- Swing GUI
+- Swing GUI Dashboard
+- JTable Product Management
+
+---
 
 ## Technologies Used
+
 - Java
 - Java Swing
-- File Handling
 - Collections Framework
+- File Handling
 - Multithreading
+- OOP Principles
 
-## Project Structure
+---
+
+## Project Architecture
+
 - model
 - service
 - ui
 - util
 - exception
 - thread
+
+---
+
+## OOP Concepts Implemented
+
+- Abstraction
+- Encapsulation
+- Inheritance
+- Polymorphism
+- Method Overriding
+- Custom Exception Handling
+
+---
+
+## Screenshots
+
+(Add screenshots here later)
+
+---
+
+## Future Improvements
+
+- Database Integration
+- Advanced Search
+- Sales Tracking
+- User Roles

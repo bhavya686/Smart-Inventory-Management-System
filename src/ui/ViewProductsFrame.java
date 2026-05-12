@@ -19,7 +19,12 @@ public class ViewProductsFrame extends JFrame {
 
         public ViewProductsFrame() {
 
-                setTitle("View Products");
+                setTitle("Smart Inventory Management System - View Products");
+
+                ImageIcon icon = new ImageIcon(
+                                "assets/icon.png");
+
+                setIconImage(icon.getImage());
 
                 setSize(900, 400);
 

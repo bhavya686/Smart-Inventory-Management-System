@@ -1,4 +1,6 @@
 Electronics,101,Laptop,Electronics,55000.0,50,24
-Clothing,103,T-Shirt,Clothing,999.0,5,XL
-Electronics,503,Keyboard,Electronics,2500.0,7,12
+Clothing,103,T-Shirt,Clothing,999.0,15,XL
+Electronics,503,Keyboard,Electronics,2500.0,18,12
 Grocery,501,Potato,Grocery,32.0,50,12-06-2026
+Clothing,301,Jeans,Clothing,2200.0,40,32
+Clothing,302,Baggy Pant,Clothing,3500.0,34,32
