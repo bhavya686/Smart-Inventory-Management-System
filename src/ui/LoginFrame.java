@@ -6,107 +6,98 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LoginFrame extends JFrame
-        implements ActionListener {
+                implements ActionListener {
 
-    private JTextField usernameField;
-    private JPasswordField passwordField;
-    private JButton loginButton;
+        private JTextField usernameField;
+        private JPasswordField passwordField;
+        private JButton loginButton;
 
-    public LoginFrame() {
+        public LoginFrame() {
 
-        setTitle(
-                "Smart Inventory Management System"
-        );
+                setTitle(
+                                "Smart Inventory Management System");
 
-        setSize(400, 250);
+                setSize(400, 300);
 
-        setLocationRelativeTo(null);
+                setLocationRelativeTo(null);
 
-        setDefaultCloseOperation(
-                JFrame.EXIT_ON_CLOSE
-        );
+                setDefaultCloseOperation(
+                                JFrame.EXIT_ON_CLOSE);
 
-        setLayout(new GridLayout(4, 2, 10, 10));
+                setLayout(new GridLayout(4, 2, 10, 10));
 
-        JLabel title =
-                new JLabel(
-                        "LOGIN SYSTEM"
-                );
+                JLabel title = new JLabel(
+                                "LOGIN SYSTEM");
 
-        title.setHorizontalAlignment(
-                JLabel.CENTER
-        );
+                title.setFont(
+                                new Font(
+                                                "Arial",
+                                                Font.BOLD,
+                                                20));
 
-        JLabel usernameLabel =
-                new JLabel("Username:");
+                title.setHorizontalAlignment(
+                                JLabel.CENTER);
 
-        JLabel passwordLabel =
-                new JLabel("Password:");
+                JLabel usernameLabel = new JLabel("Username:");
 
-        usernameField =
-                new JTextField();
+                JLabel passwordLabel = new JLabel("Password:");
 
-        passwordField =
-                new JPasswordField();
+                usernameField = new JTextField();
 
-        loginButton =
-                new JButton("Login");
+                passwordField = new JPasswordField();
 
-        loginButton.addActionListener(this);
+                loginButton = new JButton("Login");
 
-        add(title);
+                loginButton.addActionListener(this);
 
-        add(new JLabel(""));
+                add(title);
 
-        add(usernameLabel);
+                add(new JLabel(""));
 
-        add(usernameField);
+                add(usernameLabel);
 
-        add(passwordLabel);
+                add(usernameField);
 
-        add(passwordField);
+                add(passwordLabel);
 
-        add(new JLabel(""));
+                add(passwordField);
 
-        add(loginButton);
+                add(new JLabel(""));
 
-        setVisible(true);
-    }
+                add(loginButton);
 
-    @Override
-    public void actionPerformed(
-            ActionEvent e) {
-
-        String username =
-                usernameField.getText();
-
-        String password =
-                String.valueOf(
-                        passwordField.getPassword()
-                );
-
-        // Hardcoded login
-        if(username.equals("admin")
-                &&
-                password.equals("admin123")) {
-
-            JOptionPane.showMessageDialog(
-                    this,
-                    "Login Successful"
-            );
-
-            dispose();
-
-            new DashboardFrame();
-
+                setVisible(true);
         }
 
-        else {
+        @Override
+        public void actionPerformed(
+                        ActionEvent e) {
 
-            JOptionPane.showMessageDialog(
-                    this,
-                    "Invalid Username or Password"
-            );
+                String username = usernameField.getText();
+
+                String password = String.valueOf(
+                                passwordField.getPassword());
+
+                // Hardcoded login
+                if (username.equals("admin")
+                                &&
+                                password.equals("admin123")) {
+
+                        JOptionPane.showMessageDialog(
+                                        this,
+                                        "Login Successful");
+
+                        dispose();
+
+                        new DashboardFrame();
+
+                }
+
+                else {
+
+                        JOptionPane.showMessageDialog(
+                                        this,
+                                        "Invalid Username or Password");
+                }
         }
-    }
 }

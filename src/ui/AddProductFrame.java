@@ -11,193 +11,224 @@ import java.awt.*;
 
 public class AddProductFrame extends JFrame {
 
-    private JTextField idField;
-    private JTextField nameField;
-    private JTextField priceField;
-    private JTextField quantityField;
-    private JTextField extraField;
-    private JLabel extraLabel;
+        private JTextField idField;
+        private JTextField nameField;
+        private JTextField priceField;
+        private JTextField quantityField;
+        private JTextField extraField;
+        private JLabel extraLabel;
 
-    private JComboBox<String> categoryBox;
+        private JComboBox<String> categoryBox;
 
-    public AddProductFrame() {
+        public AddProductFrame() {
 
-        setTitle("Add Product");
+                setTitle("Add Product");
 
-        setSize(450, 450);
+                setSize(450, 450);
 
-        setLocationRelativeTo(null);
+                setLocationRelativeTo(null);
 
-        setLayout(new GridLayout(8, 2, 10, 10));
+                setLayout(new GridLayout(8, 2, 10, 10));
 
-        JLabel idLabel = new JLabel("Product ID:");
+                JLabel idLabel = new JLabel("Product ID:");
 
-        JLabel nameLabel = new JLabel("Product Name:");
+                JLabel nameLabel = new JLabel("Product Name:");
 
-        JLabel categoryLabel = new JLabel("Category:");
+                JLabel categoryLabel = new JLabel("Category:");
 
-        JLabel priceLabel = new JLabel("Price:");
+                JLabel priceLabel = new JLabel("Price:");
 
-        JLabel quantityLabel = new JLabel("Quantity:");
+                JLabel quantityLabel = new JLabel("Quantity:");
 
-        extraLabel = new JLabel("Warranty Months:");
+                extraLabel = new JLabel("Warranty Months:");
 
-        idField = new JTextField();
+                idField = new JTextField();
 
-        nameField = new JTextField();
+                nameField = new JTextField();
 
-        priceField = new JTextField();
+                priceField = new JTextField();
 
-        quantityField = new JTextField();
+                quantityField = new JTextField();
 
-        extraField = new JTextField();
+                extraField = new JTextField();
 
-        String[] categories = {
-                "Electronics",
-                "Grocery",
-                "Clothing"
-        };
+                String[] categories = {
+                                "Electronics",
+                                "Grocery",
+                                "Clothing"
+                };
 
-        categoryBox = new JComboBox<>(categories);
+                categoryBox = new JComboBox<>(categories);
 
-        categoryBox.addActionListener(e -> {
+                categoryBox.addActionListener(e -> {
 
-            String selectedCategory = categoryBox
-                    .getSelectedItem()
-                    .toString();
+                        String selectedCategory = categoryBox
+                                        .getSelectedItem()
+                                        .toString();
 
-            switch (selectedCategory) {
+                        switch (selectedCategory) {
 
-                case "Electronics":
+                                case "Electronics":
 
-                    extraLabel.setText(
-                            "Warranty Months:");
+                                        extraLabel.setText(
+                                                        "Warranty Months:");
 
-                    break;
+                                        break;
 
-                case "Grocery":
+                                case "Grocery":
 
-                    extraLabel.setText(
-                            "Expiry Date:");
+                                        extraLabel.setText(
+                                                        "Expiry Date:");
 
-                    break;
+                                        break;
 
-                case "Clothing":
+                                case "Clothing":
 
-                    extraLabel.setText(
-                            "Size:");
+                                        extraLabel.setText(
+                                                        "Size:");
 
-                    break;
-            }
-        });
+                                        break;
+                        }
+                });
 
-        JButton addButton = new JButton("Add Product");
+                JButton addButton = new JButton("Add Product");
 
-        add(idLabel);
-        add(idField);
+                add(idLabel);
+                add(idField);
 
-        add(nameLabel);
-        add(nameField);
+                add(nameLabel);
+                add(nameField);
 
-        add(categoryLabel);
-        add(categoryBox);
+                add(categoryLabel);
+                add(categoryBox);
 
-        add(priceLabel);
-        add(priceField);
+                add(priceLabel);
+                add(priceField);
 
-        add(quantityLabel);
-        add(quantityField);
+                add(quantityLabel);
+                add(quantityField);
 
-        add(extraLabel);
-        add(extraField);
+                add(extraLabel);
+                add(extraField);
 
-        add(new JLabel(""));
-        add(addButton);
+                add(new JLabel(""));
+                add(addButton);
 
-        addButton.addActionListener(e -> {
+                addButton.addActionListener(e -> {
 
-            try {
+                        try {
 
-                int id = Integer.parseInt(
-                        idField.getText());
+                                int id = Integer.parseInt(
+                                                idField.getText());
 
-                String name = nameField.getText();
+                                String name = nameField.getText();
 
-                String category = categoryBox
-                        .getSelectedItem()
-                        .toString();
+                                String category = categoryBox
+                                                .getSelectedItem()
+                                                .toString();
 
-                double price = Double.parseDouble(
-                        priceField.getText());
+                                double price = Double.parseDouble(
+                                                priceField.getText());
 
-                int quantity = Integer.parseInt(
-                        quantityField.getText());
+                                int quantity = Integer.parseInt(
+                                                quantityField.getText());
 
-                String extra = extraField.getText();
+                                // Value Validation
+                                if (price <= 0 || quantity < 0) {
 
-                switch (category) {
+                                        JOptionPane.showMessageDialog(
+                                                        this,
+                                                        "Invalid price or quantity.");
 
-                    case "Electronics":
+                                        return;
+                                }
 
-                        Electronics eProduct = new Electronics(
-                                id,
-                                name,
-                                category,
-                                price,
-                                quantity,
-                                Integer.parseInt(extra));
+                                String extra = extraField.getText();
 
-                        AppSession.inventoryService
-                                .addProduct(eProduct);
+                                // Empty Field Validation
+                                if (name.isEmpty()
+                                                ||
+                                                extra.isEmpty()) {
 
-                        break;
+                                        JOptionPane.showMessageDialog(
+                                                        this,
+                                                        "Please fill all fields.");
 
-                    case "Grocery":
+                                        return;
+                                }
 
-                        Grocery gProduct = new Grocery(
-                                id,
-                                name,
-                                category,
-                                price,
-                                quantity,
-                                extra);
+                                switch (category) {
 
-                        AppSession.inventoryService
-                                .addProduct(gProduct);
+                                        case "Electronics":
 
-                        break;
+                                                Electronics eProduct = new Electronics(
+                                                                id,
+                                                                name,
+                                                                category,
+                                                                price,
+                                                                quantity,
+                                                                Integer.parseInt(extra));
 
-                    case "Clothing":
+                                                AppSession.inventoryService
+                                                                .addProduct(eProduct);
 
-                        Clothing cProduct = new Clothing(
-                                id,
-                                name,
-                                category,
-                                price,
-                                quantity,
-                                extra);
+                                                break;
 
-                        AppSession.inventoryService
-                                .addProduct(cProduct);
+                                        case "Grocery":
 
-                        break;
-                }
+                                                Grocery gProduct = new Grocery(
+                                                                id,
+                                                                name,
+                                                                category,
+                                                                price,
+                                                                quantity,
+                                                                extra);
 
-                JOptionPane.showMessageDialog(
-                        this,
-                        "Product Added Successfully");
+                                                AppSession.inventoryService
+                                                                .addProduct(gProduct);
 
-                dispose();
-            }
+                                                break;
 
-            catch (Exception ex) {
+                                        case "Clothing":
 
-                JOptionPane.showMessageDialog(
-                        this,
-                        ex.getMessage());
-            }
-        });
+                                                Clothing cProduct = new Clothing(
+                                                                id,
+                                                                name,
+                                                                category,
+                                                                price,
+                                                                quantity,
+                                                                extra);
 
-        setVisible(true);
-    }
+                                                AppSession.inventoryService
+                                                                .addProduct(cProduct);
+
+                                                break;
+                                }
+
+                                JOptionPane.showMessageDialog(
+                                                this,
+                                                "Product Added Successfully");
+
+                                // Clear Fields
+                                idField.setText("");
+
+                                nameField.setText("");
+
+                                priceField.setText("");
+
+                                quantityField.setText("");
+
+                                extraField.setText("");
+                        }
+
+                        catch (Exception ex) {
+
+                                JOptionPane.showMessageDialog(
+                                                this,
+                                                ex.getMessage());
+                        }
+                });
+
+                setVisible(true);
+        }
 }

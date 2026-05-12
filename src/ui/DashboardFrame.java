@@ -21,7 +21,19 @@ public class DashboardFrame extends JFrame {
                                 JFrame.EXIT_ON_CLOSE);
 
                 setLayout(
-                                new GridLayout(5, 1, 10, 10));
+                                new GridLayout(6, 1, 10, 10));
+
+                JLabel welcomeLabel = new JLabel(
+                                "SMART INVENTORY MANAGEMENT SYSTEM",
+                                JLabel.CENTER);
+
+                welcomeLabel.setFont(
+                                new Font(
+                                                "Arial",
+                                                Font.BOLD,
+                                                18));
+
+                add(welcomeLabel);
 
                 JButton addProductButton = new JButton("Add Product");
 
